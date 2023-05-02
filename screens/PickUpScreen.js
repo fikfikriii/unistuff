@@ -99,16 +99,16 @@ import {
   
     return (
       <>
-        <SafeAreaView>
+        <SafeAreaView style={styles.container}>
           <Text style={{ fontSize: 16, fontWeight: "500", marginHorizontal: 10 }}>
-            enter Address
+            Catatan untuk penjual
           </Text>
           <TextInput
             style={{
               padding: 40,
               borderColor: "gray",
               borderWidth: 0.7,
-              paddingVertical: 80,
+              paddingVertical: 50,
               borderRadius: 9,
               margin: 10,
             }}
@@ -214,7 +214,7 @@ import {
           >
             <View>
               <Text style={{ fontSize: 17, fontWeight: "600", color: "white" }}>
-                {cart.length} items | $ {total}
+                {cart.length} items | Rp{total}
               </Text>
               <Text
                 style={{
@@ -224,7 +224,7 @@ import {
                   marginVertical: 6,
                 }}
               >
-                extra charges might apply
+                Extra charges might apply
               </Text>
             </View>
   
@@ -241,5 +241,8 @@ import {
   
   export default PickUpScreen;
   
-  const styles = StyleSheet.create({});
-  
+  const styles = StyleSheet.create({
+    container: {
+      marginTop: 50
+    }
+  });

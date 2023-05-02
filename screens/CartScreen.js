@@ -24,6 +24,8 @@ import {
     const total = cart
       .map((item) => item.quantity * item.price)
       .reduce((curr, prev) => curr + prev, 0);
+    const deliveryFee = 12000;
+    const subtotal = total + deliveryFee;
     const navigation = useNavigation();
     const userUid = auth.currentUser.uid;
     const dispatch = useDispatch();
@@ -183,7 +185,7 @@ import {
                       Item Total
                     </Text>
                     <Text style={{ fontSize: 18, fontWeight: "400" }}>
-                      ₹{total}
+                      Rp{total}
                     </Text>
                   </View>
   
@@ -203,22 +205,13 @@ import {
                     <Text
                       style={{
                         fontSize: 18,
-                        fontWeight: "400",
-                        color: "#088F8F",
+                        fontWeight: "400"
                       }}
                     >
-                      FREE
+                      Rp{deliveryFee}
                     </Text>
                   </View>
-  
-                  <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <Text
-                      style={{ fontSize: 18, fontWeight: "500", color: "gray" }}
-                    >
-                      Free Delivery on Your order
-                    </Text>
-                  </View>
-  
+
                   <View
                     style={{
                       borderColor: "gray",
@@ -227,7 +220,7 @@ import {
                       marginTop: 10,
                     }}
                   />
-  
+
                   <View
                     style={{
                       flexDirection: "row",
@@ -239,7 +232,7 @@ import {
                     <Text
                       style={{ fontSize: 18, fontWeight: "500", color: "gray" }}
                     >
-                      selected Date
+                      Selected Date
                     </Text>
                     <Text
                       style={{
@@ -260,7 +253,7 @@ import {
                     }}
                   >
                     <Text
-                      style={{ fontSize: 18, fontWeight: "500", color: "gray" }}
+                      style={{ fontSize: 18, fontWeight: "400", color: "gray" }}
                     >
                       No Of Days
                     </Text>
@@ -285,9 +278,9 @@ import {
                     }}
                   >
                     <Text
-                      style={{ fontSize: 18, fontWeight: "500", color: "gray" }}
+                      style={{ fontSize: 18, fontWeight: "400", color: "gray" }}
                     >
-                      selected Pick Up Time
+                      Selected pick up time
                     </Text>
   
                     <Text
@@ -321,7 +314,7 @@ import {
                       To Pay
                     </Text>
                     <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                      {total + 95}
+                      Rp{subtotal}
                     </Text>
                   </View>
                 </View>
@@ -346,7 +339,7 @@ import {
           >
             <View>
               <Text style={{ fontSize: 17, fontWeight: "600", color: "white" }}>
-                {cart.length} items | $ {total}
+                {cart.length} items | Rp{total}
               </Text>
               <Text
                 style={{
@@ -356,7 +349,7 @@ import {
                   marginVertical: 6,
                 }}
               >
-                extra charges might apply
+                Extra charges might apply
               </Text>
             </View>
   
