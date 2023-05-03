@@ -6,7 +6,8 @@ import {
     KeyboardAvoidingView,
     TextInput,
     Pressable,
-    ActivityIndicator
+    ActivityIndicator,
+    Image
   } from "react-native";
   import { Ionicons } from "@expo/vector-icons";
   import React, { useEffect, useState } from "react";
@@ -46,7 +47,7 @@ import {
       <SafeAreaView
         style={{
           flex: 1,
-          backgroundColor: "white",
+          backgroundColor: "#005AAB",
           alignItems: "center",
           padding: 10,
         }}
@@ -65,11 +66,15 @@ import {
               marginTop: 100,
             }}
           >
-            <Text style={{ fontSize: 20, color: "#662d91", fontWeight: "bold" }}>
+            <Image
+              source={require('unistuff/assets/logo.png')}
+              style={{ height:170, width:170}}
+            />
+            <Text style={{ fontSize: 30, color: "#FBBA0C", fontWeight: "bold", marginTop:40 }}>
               Sign In
             </Text>
   
-            <Text style={{ fontSize: 18, marginTop: 8, fontWeight: "600" }}>
+            <Text style={{ fontSize: 18, marginTop: 8, fontWeight: "600", color: "white" }}>
               Sign In to your account
             </Text>
           </View>
@@ -79,13 +84,13 @@ import {
               <MaterialCommunityIcons
                 name="email-outline"
                 size={24}
-                color="black"
+                color="white"
               />
               <TextInput
                 placeholder="Email"
                 value={email}
                 onChangeText={(text) => setEmail(text)}
-                placeholderTextColor="black"
+                placeholderTextColor="white"
                 style={{
                   fontSize: email ? 18 : 18,
                   borderBottomWidth: 1,
@@ -98,13 +103,13 @@ import {
             </View>
   
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Ionicons name="key-outline" size={24} color="black" />
+              <Ionicons name="key-outline" size={24} color="white" />
               <TextInput
                 value={password}
                 onChangeText={(text) => setPassword(text)}
                 secureTextEntry={true}
                 placeholder="Password"
-                placeholderTextColor="black"
+                placeholderTextColor="white"
                 style={{
                   fontSize: password ? 18 : 18,
                   borderBottomWidth: 1,
@@ -120,7 +125,7 @@ import {
             onPress={login}
               style={{
                 width: 200,
-                backgroundColor: "#318CE7",
+                backgroundColor: "#FBBA0C",
                 padding: 15,
                 borderRadius: 7,
                 marginTop: 50,
@@ -128,7 +133,7 @@ import {
                 marginRight: "auto",
               }}
             >
-              <Text style={{ fontSize: 18, textAlign: "center", color: "white" }}>
+              <Text style={{ fontSize: 18, textAlign: "center", color: "black" }}>
                 Login
               </Text>
             </Pressable>
@@ -138,7 +143,7 @@ import {
                 style={{
                   textAlign: "center",
                   fontSize: 17,
-                  color: "gray",
+                  color: "white",
                   fontWeight: "500",
                 }}
               >
