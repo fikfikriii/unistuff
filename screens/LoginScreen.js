@@ -133,7 +133,7 @@ import {
                 marginRight: "auto",
               }}
             >
-              <Text style={{ fontSize: 18, textAlign: "center", color: "black" }}>
+              <Text style={{ fontWeight:"bold", fontSize: 18, textAlign: "center", color: "black" }}>
                 Login
               </Text>
             </Pressable>
