@@ -4,7 +4,6 @@ import {
   View,
   Alert,
   Pressable,
-  Image,
   TextInput,
   ScrollView,
 } from "react-native";
@@ -29,7 +28,7 @@ const HomeScreen = () => {
     .map((item) => item.quantity * item.price)
     .reduce((curr, prev) => curr + prev, 0);
   const navigation = useNavigation();
-  console.log(cart);
+  // console.log(cart);
   const [displayCurrentAddress, setdisplayCurrentAddress] = useState(
     "we are loading your location"
   );
@@ -110,7 +109,7 @@ const HomeScreen = () => {
     };
     fetchProducts();
   }, []);
-  console.log(product);
+  // console.log(product);
 
   return (
     <>
@@ -142,7 +141,8 @@ const HomeScreen = () => {
         </View>
 
         {/* Search Bar */}
-        <View
+        <Pressable
+          onPress={() => navigation.navigate("Search")}
           style={{
             padding: 10,
             margin: 10,
@@ -156,7 +156,7 @@ const HomeScreen = () => {
         >
           <TextInput placeholder="Search for items or More" />
           <Feather name="search" size={24} color="#FBBA0C" />
-        </View>
+        </Pressable>
 
         {/* Image Carousel */}
         <Carousel />

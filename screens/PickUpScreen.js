@@ -24,50 +24,50 @@ import {
     const deliveryTime = [
       {
         id: "0",
-        name: "2-3 Days",
+        name: "Labtek 5",
       },
       {
         id: "1",
-        name: "3-4 Days",
+        name: "Labtek 6",
       },
       {
         id: "2",
-        name: "4-5 Days",
+        name: "Saraga",
       },
       {
         id: "3",
-        name: "5-6 Days",
+        name: "Masjid Salman",
       },
       {
         id: "4",
-        name: "Tommorrow",
+        name: "Fore",
       },
     ];
   
     const times = [
       {
         id: "0",
-        time: "11:00 PM",
-      },
-      {
-        id: "1",
-        time: "12:00 PM",
-      },
-      {
-        id: "2",
         time: "1:00 PM",
       },
       {
-        id: "2",
+        id: "1",
         time: "2:00 PM",
       },
       {
-        id: "4",
+        id: "2",
         time: "3:00 PM",
       },
       {
-        id: "5",
+        id: "3",
         time: "4:00 PM",
+      },
+      {
+        id: "4",
+        time: "5:00 PM",
+      },
+      {
+        id: "5",
+        time: "6:00 PM",
       },
     ];
     const navigation = useNavigation();
@@ -141,8 +141,6 @@ import {
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {times.map((item, index) => (
               <Pressable
-                key={index}
-                onPress={() => setSelectedTime(item.time)}
                 style={
                   selectedTime.includes(item.time)
                     ? {
@@ -160,13 +158,15 @@ import {
                         borderWidth: 0.7,
                       }
                 }
+                onPress={() => setSelectedTime(item.time)}
+                key={index}
               >
                 <Text>{item.time}</Text>
               </Pressable>
             ))}
           </ScrollView>
           <Text style={{ fontSize: 16, fontWeight: "500", marginHorizontal: 10 }}>
-            Delivery Date
+            Pick Up Location
           </Text>
   
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>

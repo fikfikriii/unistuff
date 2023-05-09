@@ -54,8 +54,12 @@ import {
       >
         {loading ? (
           <View style={{alignItems:"center",justifyContent:"center",flexDirection:"row",flex:1}}>
+            <Image
+              source={require('unistuff/assets/logo.png')}
+              style={{ height:170, width:170}}
+            />
             <Text style={{marginRight:10}}>Loading</Text>
-            <ActivityIndicator size="large" color={"red"}/>
+            <ActivityIndicator size="large" color={"#005AAB"}/>
           </View>
         ) : (
           <KeyboardAvoidingView>
