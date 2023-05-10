@@ -56,7 +56,7 @@ import {
           <View style={{alignItems:"center",justifyContent:"center",flexDirection:"row",flex:1}}>
             <Image
               source={require('unistuff/assets/logo.png')}
-              style={{ height:170, width:170}}
+              style={{ height:170, width:170, alignItems:"center", justifyContent:"center"}}
             />
             <Text style={{marginRight:10}}>Loading</Text>
             <ActivityIndicator size="large" color={"#005AAB"}/>
