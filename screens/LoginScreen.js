@@ -56,9 +56,9 @@ import {
           <View style={{alignItems:"center",justifyContent:"center",flexDirection:"row",flex:1}}>
             <Image
               source={require('unistuff/assets/logo.png')}
-              style={{ height:170, width:170, alignItems:"center", justifyContent:"center"}}
+              style={{ height:170, width:170, alignItems:"center", justifyContent:"center", marginLeft:25 }}
             />
-            <Text style={{marginRight:10}}>Loading</Text>
+            {/* <Text style={{marginRight:10,justifyContent:"center",flexDirection:"row"}}>Loading</Text> */}
             <ActivityIndicator size="large" color={"#005AAB"}/>
           </View>
         ) : (
@@ -72,7 +72,7 @@ import {
           >
             <Image
               source={require('unistuff/assets/logo.png')}
-              style={{ height:170, width:170}}
+              style={{ height:170, width:170, justifyContent:"center",flexDirection:"row"}}
             />
             <Text style={{ fontSize: 30, color: "#FBBA0C", fontWeight: "bold", marginTop:40 }}>
               Sign In
@@ -102,6 +102,7 @@ import {
                   marginLeft: 13,
                   width: 300,
                   marginVertical: 10,
+                  color: "white"
                 }}
               />
             </View>
@@ -121,6 +122,7 @@ import {
                   marginLeft: 13,
                   width: 300,
                   marginVertical: 20,
+                  color: "white"
                 }}
               />
             </View>

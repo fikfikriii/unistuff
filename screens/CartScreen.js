@@ -24,7 +24,7 @@ import {
     const total = cart
       .map((item) => item.quantity * item.price)
       .reduce((curr, prev) => curr + prev, 0);
-    const deliveryFee = 12000;
+    const deliveryFee = 0;
     const subtotal = total + deliveryFee;
     const navigation = useNavigation();
     const userUid = auth.currentUser.uid;
@@ -241,7 +241,7 @@ import {
                         color: "#088F8F",
                       }}
                     >
-                      {/* {route.params.pickUpDate} */}
+                      {route.params.selectedDate}
                     </Text>
                   </View>
   
@@ -255,7 +255,7 @@ import {
                     <Text
                       style={{ fontSize: 18, fontWeight: "400", color: "gray" }}
                     >
-                      No Of Days
+                      Location
                     </Text>
   
                     <Text
@@ -265,7 +265,7 @@ import {
                         color: "#088F8F",
                       }}
                     >
-                      {route.params.no_Of_days}
+                      {route.params.location}
                     </Text>
                   </View>
   

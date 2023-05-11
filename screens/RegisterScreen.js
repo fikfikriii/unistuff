@@ -7,7 +7,7 @@ import {
     SafeAreaView,
     KeyboardAvoidingView,
     Alert,
-    Image
+    Image,
   } from "react-native";
   import { Feather } from '@expo/vector-icons';
   import { Ionicons } from "@expo/vector-icons";
@@ -44,8 +44,11 @@ import {
           const myUserUid = auth.currentUser.uid;
   
           setDoc(doc(db,"users",`${myUserUid}`),{
+            fname: "",
+            lname: "",
             email:user,
-            phone:phone
+            phone:phone,
+            university:""
           })
         })
       }
@@ -98,6 +101,7 @@ import {
                   marginLeft: 13,
                   width: 300,
                   marginVertical: 10,
+                  color:"white"
                 }}
               />
             </View>
@@ -117,6 +121,7 @@ import {
                   marginLeft: 13,
                   width: 300,
                   marginVertical: 20,
+                  color:"white"
                 }}
               />
             </View>
@@ -135,6 +140,7 @@ import {
                   marginLeft: 13,
                   width: 300,
                   marginVertical: 10,
+                  color:"white"
                 }}
               />
             </View>

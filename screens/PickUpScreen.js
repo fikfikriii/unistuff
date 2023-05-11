@@ -91,7 +91,7 @@ import {
           navigation.replace("Cart",{
               pickUpDate:selectedDate,
               selectedTime:selectedTime,
-              no_Of_days:delivery,
+              location:delivery,
   
           })
         }
