@@ -108,6 +108,7 @@ const HomeScreen = () => {
       items?.map((service) => dispatch(getProducts(service)));
     };
     fetchProducts();
+
   }, []);
   // console.log(product);
 
@@ -139,7 +140,7 @@ const HomeScreen = () => {
             /> */}
           </Pressable>
         </View>
-
+        
         {/* Search Bar */}
         <Pressable
           onPress={() => navigation.navigate("Search")}

@@ -9,14 +9,14 @@ import {
     Alert,
     Image,
   } from "react-native";
-  import { Feather } from '@expo/vector-icons';
-  import { Ionicons } from "@expo/vector-icons";
-  import React, { useState } from "react";
-  import { MaterialCommunityIcons } from "@expo/vector-icons";
-  import { useNavigation } from "@react-navigation/native";
-  import { createUserWithEmailAndPassword } from "firebase/auth";
-  import { auth, db } from "../firebase";
-  import { doc, setDoc } from "firebase/firestore";
+import { Feather } from '@expo/vector-icons';
+import { Ionicons } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
   const RegisterScreen = () => {
       const [email,setEmail] = useState("");
       const [password,setPassword] = useState("");
@@ -44,8 +44,7 @@ import {
           const myUserUid = auth.currentUser.uid;
   
           setDoc(doc(db,"users",`${myUserUid}`),{
-            fname: "",
-            lname: "",
+            name: "",
             email:user,
             phone:phone,
             university:""
@@ -146,7 +145,7 @@ import {
             </View>
   
             <Pressable
-            onPress={register}
+              onPress={register}
               style={{
                 width: 200,
                 backgroundColor: "#FBBA0C",
