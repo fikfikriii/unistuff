@@ -35,7 +35,7 @@ import {
       await setDoc(
         doc(db, "users", `${userUid}`),
         {
-          orders: { ...cart },
+          orders: {...cart}, 
           pickUpDetails: route.params,
         },
         {
@@ -154,7 +154,7 @@ import {
                     </Pressable>
   
                     <Text style={{ fontSize: 16, fontWeight: "500" }}>
-                      ${item.price * item.quantity}
+                      Rp{item.price * item.quantity}
                     </Text>
                   </View>
                 ))}

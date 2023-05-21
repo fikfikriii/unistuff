@@ -33,6 +33,11 @@ export const CartSlice = createSlice({
             }
         },
         cleanCart:(state) => {
+            // state.cart = [];
+            // return state
+            state.cart.forEach((item) => {
+                item.quantity = 0;
+            });
             state.cart = [];
         }
     }

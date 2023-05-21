@@ -13,7 +13,7 @@ import * as Location from "expo-location";
 import { MaterialIcons } from "@expo/vector-icons";
 import Carousel from "../components/Carousel";
 import Services from "../components/Services";
-import DressItem from "../components/DressItem";
+import UniItem from "../components/UniItem";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../ProductReducer";
 import { useNavigation } from "@react-navigation/native";
@@ -28,7 +28,6 @@ const HomeScreen = () => {
     .map((item) => item.quantity * item.price)
     .reduce((curr, prev) => curr + prev, 0);
   const navigation = useNavigation();
-  // console.log(cart);
   const [displayCurrentAddress, setdisplayCurrentAddress] = useState(
     "we are loading your location"
   );
@@ -167,7 +166,7 @@ const HomeScreen = () => {
 
         {/* Render all the Products */}
         {product.map((item, index) => (
-          <DressItem item={item} key={index} />
+          <UniItem item={item} key={index} />
         ))}
       </ScrollView>
 

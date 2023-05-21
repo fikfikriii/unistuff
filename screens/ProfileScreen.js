@@ -183,6 +183,26 @@ return (
           textAlign: "center", 
           color: "black" }}>Update</Text>
     </Pressable>
+    
+    <Pressable 
+      onPress={() => navigation.navigate("YourOrder")}
+      style={{
+        width: 200,
+        backgroundColor: "#19b50b",
+        padding: 15,
+        borderRadius: 7,
+        marginTop: 50,
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}  
+    >
+      <Text 
+        style={{ 
+          fontWeight:"bold", 
+          fontSize: 18, 
+          textAlign: "center", 
+          color: "black" }}>Your Order</Text>
+    </Pressable>
 
     <Pressable 
       onPress={signOutUser}
