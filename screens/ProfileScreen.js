@@ -191,7 +191,7 @@ return (
         backgroundColor: "#19b50b",
         padding: 15,
         borderRadius: 7,
-        marginTop: 50,
+        marginTop: 20,
         marginLeft: "auto",
         marginRight: "auto",
       }}  

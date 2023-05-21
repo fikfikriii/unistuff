@@ -135,13 +135,15 @@
 // export default YourOrderScreen;
 
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity, Alert } from 'react-native';
+import { ScrollView, View, Text, FlatList, StyleSheet, Image, TouchableOpacity, Alert, Pressable } from 'react-native';
 import { collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useNavigation } from '@react-navigation/native';
 import { auth, db } from '../firebase';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const YourOrderScreen = () => {
     const [orderHistory, setOrderHistory] = useState([]);
+    const [pickupDetails, setPickupDetails] = useState({});
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -152,10 +154,12 @@ const YourOrderScreen = () => {
                 if (userDoc.exists()) {
                     const userData = userDoc.data();
                     const orders = userData.orders || {};
+                    const pickup = userData.pickUpDetails || {};
 
                     // Convert the orders map to an array
                     const orderArray = Object.values(orders);
                     setOrderHistory(orderArray);
+                    setPickupDetails(pickup);
                 }
             } catch (error) {
                 console.error('Error fetching order history:', error);
@@ -164,6 +168,14 @@ const YourOrderScreen = () => {
 
         fetchOrderHistory();
     }, []);
+
+    const formatPickupDate = () => {
+        if (pickupDetails && pickupDetails.pickUpDate) {
+            const date = pickupDetails.pickUpDate.toDate();
+            return date.toDateString();
+        }
+        return '';
+    };
 
     const handleCompleteOrder = async () => {
         try {
@@ -198,19 +210,51 @@ const YourOrderScreen = () => {
         <View style={styles.container}>
             {orderHistory.length > 0 ? (
                 <>
-                    <Text style={styles.heading}>Your Order</Text>
+                    <View style={styles.headingContainer}>
+                        <Text style={styles.heading}>Your Order</Text>
+                    </View>
+                    <Text style={styles.location}>Location: {pickupDetails.location}</Text>
+                    <Text style={styles.pickUpDate}>Pick-up Date: {formatPickupDate()}</Text>
+                    <Text style={styles.selectedTime}>Selected Time: {pickupDetails.selectedTime}</Text>
                     <FlatList
                         data={orderHistory}
                         keyExtractor={(item) => item.id}
                         renderItem={renderItem}
                     />
                     <TouchableOpacity style={styles.completeButton} onPress={handleCompleteOrder}>
-                        <Text style={styles.completeButtonText}>Complete</Text>
+                        <Text style={styles.completeButtonText}>Complete Order</Text>
                     </TouchableOpacity>
                 </>
             ) : (
-                <Text style={styles.noOrderText}>You Don't Have Any Ongoing Order</Text>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                    <MaterialCommunityIcons name="cart-off" size={100} color="black" justifyContent="center" />
+                    <Text style={styles.noOrderText}>You Don't Have Any Ongoing Order</Text>
+                </View>
             )}
+
+            <Pressable 
+                onPress={() => navigation.navigate("Home")}
+                style={{
+                    width: 200,
+                    backgroundColor: "white",
+                    padding: 15,
+                    borderRadius: 7,
+                    marginTop: 0,
+                    marginBottom: 55,
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    borderColor: "gray",
+                    borderWidth: 3
+                }}  
+                >
+                <Text 
+                    style={{ 
+                    fontWeight:"bold", 
+                    fontSize: 18, 
+                    textAlign: "center", 
+                    color: "black" }}>Back To Home</Text>
+            </Pressable>
+                
         </View>
     );
 };
@@ -221,10 +265,14 @@ const styles = StyleSheet.create({
         padding: 16,
     },
     heading: {
-        fontSize: 20,
+        fontSize: 30,
         fontWeight: 'bold',
-        marginBottom: 10,
+        marginBottom: 20,
         textAlign: 'center',
+    },
+    headingContainer: {
+        marginTop: 50, // Add top margin
+        alignItems: 'center',
     },
     card: {
         backgroundColor: '#F8F8F8',
@@ -234,6 +282,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         marginBottom: 14,
+        marginTop: 15,
     },
     imageContainer: {},
     image: {
@@ -258,22 +307,38 @@ const styles = StyleSheet.create({
         color: 'gray',
         fontSize: 13,
     },
+    location: {
+        fontSize: 18,
+        marginBottom: 6,
+    },
+    pickUpDate: {
+        fontSize: 18,
+        marginBottom: 6,
+    },
+    selectedTime: {
+        fontSize: 18,
+        marginBottom: 6,
+    },
     completeButton: {
-        backgroundColor: 'blue',
+        backgroundColor: '#19b50b',
+        width: 200,
         alignSelf: 'center',
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        borderRadius: 8,
-        marginTop: 20,
+        padding:15,
+        borderRadius: 7,
+        marginTop: 0,
+        marginBottom: 20,
     },
     completeButtonText: {
-        color: 'white',
+        color: 'black',
         fontWeight: 'bold',
-        fontSize: 16,
+        fontSize: 18,
+        textAlign: "center"
     },
     noOrderText: {
         textAlign: 'center',
-        fontSize: 18,
+        fontWeight: 'bold',
+        justifyContent: 'center',
+        fontSize: 22,
         marginTop: 20,
     },
 });

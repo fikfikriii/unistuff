@@ -13,7 +13,7 @@ const OrderScreen = () => {
           height: 360,
           width:300,
           alignSelf: "center",
-          marginTop: 40,
+          marginTop: 120,
           justifyContent: "center",
         }}
         autoPlay
@@ -23,7 +23,7 @@ const OrderScreen = () => {
 
       <Text
         style={{
-          marginTop: 40,
+          marginTop: 30,
           fontSize: 19,
           fontWeight: "600",
           textAlign: "center",
