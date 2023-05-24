@@ -39,7 +39,7 @@ const UniItem = ({ item }) => {
         <View>
           <Text
             style={{
-              width: 83,
+              width: 140,
               fontSize: 17,
               fontWeight: "500",
               marginBottom: 7,
@@ -47,7 +47,7 @@ const UniItem = ({ item }) => {
           >
             {item.name}
           </Text>
-          <Text style={{ width: 60, color: "gray", fontSize: 13 }}>
+          <Text style={{ width: 80, color: "gray", fontSize: 13 }}>
             Rp{item.price}
           </Text>
         </View>

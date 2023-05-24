@@ -6,7 +6,8 @@
     "start": "expo start --dev-client",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@awrminkhodaei/react-native-horizontal-datepicker": "^0.1.6",
@@ -30,6 +31,7 @@
     "idb": "^7.1.1",
     "lottie-react-native": "^5.1.5",
     "moment-jalaali": "^0.10.0",
+    "patch-package": "^7.0.0",
     "react": "18.2.0",
     "react-native": "0.69.9",
     "react-native-datepicker": "^1.7.2",

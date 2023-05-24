@@ -12,22 +12,22 @@ const Services = () => {
   const services = [
     {
       id: "0",
-      image: "https://cdn-icons-png.flaticon.com/128/3003/3003984.png",
+      image: "https://cdn-icons-png.flaticon.com/512/3771/3771417.png",
       name: "Textbook",
     },
     {
       id: "11",
-      image: "https://cdn-icons-png.flaticon.com/128/2975/2975175.png",
+      image: "https://cdn-icons-png.flaticon.com/512/1785/1785348.png",
       name: "Shoes",
     },
     {
       id: "12",
-      image: "https://cdn-icons-png.flaticon.com/128/9753/9753675.png",
+      image: "https://cdn-icons-png.flaticon.com/512/1260/1260370.png",
       name: "Gadget",
     },
     {
       id: "13",
-      image: "https://cdn-icons-png.flaticon.com/128/995/995016.png",
+      image: "https://cdn-icons-png.flaticon.com/512/2806/2806045.png",
       name: "Jacket",
     },
   ];

@@ -43,6 +43,7 @@ const SearchScreen = () => {
                     borderColor: "#FFC72C",
                     borderWidth: 4,
                     borderRadius: 10,
+                    marginTop :60,
                 }}
             >
                 <TextInput
