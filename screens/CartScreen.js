@@ -90,7 +90,7 @@ import {
                     <Text style={{ width: 100, fontSize: 16, fontWeight: "500" }}>
                       {item.name}
                     </Text>
-  
+                  
                     {/* - + button */}
                     <Pressable
                       style={{

@@ -20,8 +20,16 @@ import { useNavigation } from "@react-navigation/native";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { Ionicons } from '@expo/vector-icons';
+import { BottomModal } from "react-native-modals";
+import { ModalFooter } from "react-native-modals";
+import { ModalButton } from "react-native-modals";
+import { ModalTitle } from "react-native-modals";
+import { SlideAnimation } from "react-native-modals";
+import { ModalContent } from "react-native-modals";
+import CarouselDetails from "../components/CarouselDetails";
 
 const HomeScreen = () => {
+  const [modalVisibile, setModalVisibile] = useState(false);
   const cart = useSelector((state) => state.cart.cart);
   const [items, setItems] = useState([]);
   const total = cart
@@ -36,6 +44,7 @@ const HomeScreen = () => {
     checkIfLocationEnabled();
     getCurrentLocation();
   }, []);
+  // console.log(cart)
   const checkIfLocationEnabled = async () => {
     let enabled = await Location.hasServicesEnabledAsync();
     if (!enabled) {
@@ -130,7 +139,7 @@ const HomeScreen = () => {
             onPress={() => navigation.navigate("Profile")}
             style={{ marginLeft: "auto", marginRight: 7 }}
           >
-          <Ionicons size={40} name="person-circle-sharp" color="black" />
+            <Ionicons size={40} name="person-circle-sharp" color="black" />
             {/* <Image
               style={{ width: 40, height: 40, borderRadius: 20 }}
               source={{
@@ -139,7 +148,7 @@ const HomeScreen = () => {
             /> */}
           </Pressable>
         </View>
-        
+
         {/* Search Bar */}
         <Pressable
           onPress={() => navigation.navigate("Search")}
@@ -168,6 +177,7 @@ const HomeScreen = () => {
         {product.map((item, index) => (
           <UniItem item={item} key={index} />
         ))}
+
       </ScrollView>
 
       {total === 0 ? null : (
@@ -206,6 +216,8 @@ const HomeScreen = () => {
           </Pressable>
         </Pressable>
       )}
+
+
     </>
   );
 };
@@ -213,3 +225,34 @@ const HomeScreen = () => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({});
+
+{/* <BottomModal
+swipeThreshold={200}
+onBackdropPress={() => setModalVisibile(!modalVisibile)}
+swipeDirection={["up", "down"]}
+modalTitle={<ModalTitle title="Product Details" />}
+modalAnimation={
+  new SlideAnimation({
+    slideFrom: "bottom",
+  })
+}
+onHardwareBackPress={() => setModalVisibile(!modalVisibile)}
+visible={modalVisibile}
+onTouchOutside={() => setModalVisibile(!modalVisibile)}
+>
+<ModalContent style={{ width: "100%", height: 310 }}>
+  
+  <CarouselDetails />
+  <View
+    style={{
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      marginVertical: 15,
+    }}
+  >
+    <Text style={{ fontSize: 16, fontWeight: "500" }}>route.params.name</Text>
+  </View>
+
+</ModalContent>
+</BottomModal> */}

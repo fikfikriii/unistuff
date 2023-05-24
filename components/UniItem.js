@@ -7,18 +7,24 @@ import {
   incrementQuantity,
 } from "../CartReducer";
 import { decrementQty, incrementQty } from "../ProductReducer";
+import { useNavigation } from "@react-navigation/native";
 
 const UniItem = ({ item }) => {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
   const addItemToCart = () => {
     dispatch(addToCart(item)); // cart
     dispatch(incrementQty(item)); // product
   };
-  
+
   return (
     <View>
       <Pressable
+        onPress={() => navigation.navigate("Detail", {
+          item: item
+        })
+        }
         style={{
           backgroundColor: "#F8F8F8",
           borderRadius: 8,

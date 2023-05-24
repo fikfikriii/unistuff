@@ -13,12 +13,12 @@ const Services = () => {
     {
       id: "0",
       image: "https://cdn-icons-png.flaticon.com/512/3771/3771417.png",
-      name: "Textbook",
+      name: "Books",
     },
     {
       id: "11",
       image: "https://cdn-icons-png.flaticon.com/512/1785/1785348.png",
-      name: "Shoes",
+      name: "Fashion",
     },
     {
       id: "12",
@@ -28,7 +28,7 @@ const Services = () => {
     {
       id: "13",
       image: "https://cdn-icons-png.flaticon.com/512/2806/2806045.png",
-      name: "Jacket",
+      name: "Tools",
     },
   ];
   return (
