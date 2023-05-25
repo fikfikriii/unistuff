@@ -17,8 +17,6 @@ import React, { useLayoutEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import CarouselDetails from "../components/CarouselDetails";
-// import { MaterialIcons } from "@expo/vector-icons";
-// import Amenities from "../components/Amenities";
 
 const ProductDetail = () => {
 
@@ -30,14 +28,9 @@ const ProductDetail = () => {
     ]
     const route = useRoute();
     const item = route.params.item
-    const currQuantity = 0;
     const navigation = useNavigation();
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart.cart);
-    const addItemToCart = () => {
-        dispatch(addToCart(item)); // cart
-        dispatch(incrementQty(item)); // product
-    };
 
     return (
         <>

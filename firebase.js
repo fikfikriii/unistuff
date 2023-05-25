@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth";
 import {getFirestore, initializeFirestore} from "firebase/firestore";
 
+// Production
 const firebaseConfig = {
   apiKey: "AIzaSyBMR4bUQzMSWEP_P7gqgLqZvHbO06JReQU",
   authDomain: "unistuff-f09c5.firebaseapp.com",
@@ -11,6 +12,7 @@ const firebaseConfig = {
   appId: "1:142408749216:web:29ac5604359995570079c5"
 };
 
+// Development
 // const firebaseConfig = {
 //   apiKey: "AIzaSyBD5K7_WWmS8Lo6DXonKD7HXbrDWtXU9Dc",
 //   authDomain: "unistuff-cec1c.firebaseapp.com",

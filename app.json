@@ -5,12 +5,12 @@
     "slug": "unistuff",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon-unistuff.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash-unistuff.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#005AAB"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -24,8 +24,8 @@
       "packages": "com.ppam.unistuff",
       "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/icon-unistuff.png",
+        "backgroundColor": "#005AAB"
       },
       "package": "com.ppam.unistuff"
     },

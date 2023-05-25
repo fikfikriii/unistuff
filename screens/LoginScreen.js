@@ -42,7 +42,7 @@ import {
         console.log("user details",user)
       })
     }
-  
+    
     return (
       <SafeAreaView
         style={{
