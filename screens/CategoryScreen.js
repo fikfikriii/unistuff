@@ -1,15 +1,16 @@
-import { StyleSheet, ScrollView, Text, View, SafeAreaView, TextInput } from "react-native";
+import { StyleSheet, ScrollView, Text, FlatList, View, SafeAreaView, TextInput } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Feather } from "@expo/vector-icons";
-import SearchResults from "../components/SearchResults";
+import { useRoute } from "@react-navigation/native";
+import CategoryResults from "../components/CategoryResults";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { useSelector, useDispatch } from "react-redux";
 
-const SearchScreen = () => {
-    const [input, setInput] = useState("");
+const CategoryScreen = () => {
+    const route = useRoute();
+    const service = route.params.item
+    const input = service.name
     const data = useSelector((state) => state.product.product);
-    const dispatch = useDispatch();
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -17,46 +18,36 @@ const SearchScreen = () => {
 
         const fetchdatas = async () => {
             const colRef = collection(db, "types");
-
             const docsSnap = await getDocs(colRef);
             docsSnap.forEach((doc) => {
                 items.push(doc.data());
             });
         };
-
         fetchdatas();
     }, [items]);
-
     return (
-        <SafeAreaView>
+        <SafeAreaView
+            style={{ backgroundColor: "#F0F0F0", flex: 1, marginTop: 50 }}>
             <View
                 style={{
-                    marginTop: 50,
-                    padding: 10,
-                    margin: 10,
+                    marginHorizontal: 12,
+                    marginTop: 10,
                     flexDirection: "row",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    borderColor: "#FFC72C",
-                    borderWidth: 4,
-                    borderRadius: 10,
-                    marginTop :60,
                 }}
             >
-                <TextInput
-                    value={input}
-                    onChangeText={(text) => setInput(text)}
-                    placeholder="Enter Your Stuff"
-                />
-                <Feather name="search" size={22} color="black" />
+                <Text style={{ fontSize: 25, fontWeight: "bold" }}>
+                    {service.name}
+                </Text>
             </View>
             <ScrollView>
-                <SearchResults data={data} input={input} setInput={setInput} />
+                <CategoryResults data={data} input={input} />
             </ScrollView>
         </SafeAreaView>
     );
 };
 
-export default SearchScreen;
+export default CategoryScreen;
 
 const styles = StyleSheet.create({});

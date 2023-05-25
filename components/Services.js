@@ -7,8 +7,10 @@ import {
   Image,
 } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const Services = () => {
+  const navigation = useNavigation();
   const services = [
     {
       id: "0",
@@ -27,18 +29,21 @@ const Services = () => {
     },
     {
       id: "13",
-      image: "https://cdn-icons-png.flaticon.com/512/2806/2806045.png",
+      image: "https://cdn-icons-png.flaticon.com/512/4231/4231001.png",
       name: "Tools",
     },
   ];
   return (
     <View style={{ padding: 10 }}>
       <Text style={{ fontSize: 16, fontWeight: "500", marginBottom: 7 }}>
-        Products Available
+        Products Category
       </Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {services.map((service, index) => (
           <Pressable
+            onPress={() => navigation.navigate("Category", {
+              item: service
+            })}
             style={{
               margin: 10,
               backgroundColor: "white",

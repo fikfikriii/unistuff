@@ -22,9 +22,7 @@ const SearchResults = ({ data, input, setInput }) => {
                             return null;
                         }
                         return (
-                            
-                                <UniItem item={item} />
-                            
+                            <UniItem item={item} />
                         )
                     }
                 }}

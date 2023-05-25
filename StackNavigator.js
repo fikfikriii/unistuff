@@ -12,6 +12,7 @@ import OrderScreen from './screens/OrderScreen';
 import SearchScreen from './screens/SearchScreen';
 import YourOrderScreen from './screens/YourOrderScreen';
 import ProductDetail from './screens/ProductDetailScreen';
+import CategoryScreen from './screens/CategoryScreen';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -28,6 +29,7 @@ const StackNavigator = () => {
         <Stack.Screen name="Search" component={SearchScreen} options={{headerShown:false}}/>
         <Stack.Screen name="YourOrder" component={YourOrderScreen} options={{headerShown:false}}/>
         <Stack.Screen name="Detail" component={ProductDetail} options={{headerShown:false}}/>
+        <Stack.Screen name="Category" component={CategoryScreen} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
