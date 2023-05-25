@@ -13,7 +13,7 @@ import UniItem from "../components/UniItem";
 const SearchResults = ({ data, input, setInput }) => {
     const navigation = useNavigation();
     return (
-        <View style={{ padding: 10 }}>
+        <View>
             <FlatList
                 data={data}
                 renderItem={({ item }) => {

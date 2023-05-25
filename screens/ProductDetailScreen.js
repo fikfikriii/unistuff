@@ -5,7 +5,6 @@ import {
     SafeAreaView,
     ScrollView,
     Pressable,
-    Image,
 } from "react-native";
 import {
     addToCart,
@@ -13,13 +12,12 @@ import {
     incrementQuantity,
 } from "../CartReducer";
 import { decrementQty, incrementQty } from "../ProductReducer";
-import React, { useLayoutEffect } from "react";
+import React, { useState } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import CarouselDetails from "../components/CarouselDetails";
 
 const ProductDetail = () => {
-
     const services = [
         {
             id: "0",
@@ -27,10 +25,15 @@ const ProductDetail = () => {
         },
     ]
     const route = useRoute();
+    const [quantity, setQuantity] = useState(route.params.item.quantity);
     const item = route.params.item
     const navigation = useNavigation();
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart.cart);
+    const addItemToCart = () => {
+        dispatch(addToCart(item)); // cart
+        dispatch(incrementQty(item)); // product
+    };
 
     return (
         <>
@@ -133,8 +136,10 @@ const ProductDetail = () => {
                             <Pressable
                                 onPress={() => {
                                     dispatch(decrementQuantity(route.params.item)); // cart
-                                    // dispatch(curr -1)
                                     dispatch(decrementQty(route.params.item)); // product
+                                    if (quantity > 0) {
+                                        setQuantity(quantity - 1);
+                                    }
                                 }}
                                 style={{
                                     width: 26,
@@ -175,15 +180,16 @@ const ProductDetail = () => {
                                         
                                     }}
                                 >
-                                    {route.params.item.quantity}
+                                    {quantity}
                                 </Text>
                             </Pressable>
 
                             <Pressable
                                 onPress={() => {
                                     dispatch(incrementQuantity(route.params.item)); // cart
-                                    // dispatch(curr + 1)
                                     dispatch(incrementQty(route.params.item)); //product
+                                    setQuantity(quantity + 1);
+                                    
                                 }}
                                 style={{
                                     width: 26,
@@ -214,8 +220,9 @@ const ProductDetail = () => {
                     ) : (
                         <Pressable
                             onPress={() => {
-                                dispatch(addToCart(route.params.item));
-                                dispatch(incrementQty(route.params.item));
+                                dispatch(addToCart(route.params.item)); // cart
+                                dispatch(incrementQty(route.params.item)); // product
+                                setQuantity(quantity + 1); // Update the local state
                             }}
                             style={{
                                 width: 200,

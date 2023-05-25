@@ -20,16 +20,9 @@ import { useNavigation } from "@react-navigation/native";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { Ionicons } from '@expo/vector-icons';
-import { BottomModal } from "react-native-modals";
-import { ModalFooter } from "react-native-modals";
-import { ModalButton } from "react-native-modals";
-import { ModalTitle } from "react-native-modals";
-import { SlideAnimation } from "react-native-modals";
-import { ModalContent } from "react-native-modals";
 import CarouselDetails from "../components/CarouselDetails";
 
 const HomeScreen = () => {
-  const [modalVisibile, setModalVisibile] = useState(false);
   const cart = useSelector((state) => state.cart.cart);
   const [items, setItems] = useState([]);
   const total = cart
@@ -163,7 +156,7 @@ const HomeScreen = () => {
             borderRadius: 7,
           }}
         >
-          <TextInput placeholder="Search for items or More" />
+          <TextInput onFocus={() => navigation.navigate("Search")} placeholder="Search for items or More" />
           <Feather name="search" size={24} color="#FBBA0C" />
         </Pressable>
 
